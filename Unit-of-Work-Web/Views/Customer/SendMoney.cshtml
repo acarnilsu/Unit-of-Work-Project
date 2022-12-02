@@ -1,0 +1,18 @@
+﻿@model SendMoneyVM
+
+<h1>Para Transfer Ekranı</h1>
+
+<form method="post">
+
+    <input type="hidden" asp-for="SenderID" class="form-control" />
+    <br />
+    <label>Alıcı Iban</label>
+    <input type="text" asp-for="Iban" class="form-control" />
+    <br />
+    <label>Miktar</label>
+    <input type="text" asp-for="Amount" class="form-control" />
+    <br />
+    <button class="btn btn-warning">Gönder Gelsin</button>
+</form>
+
+
