@@ -22,6 +22,26 @@ namespace Unit_of_Work_Web.Controllers
         [HttpPost]
         public IActionResult SendMoney(SendMoneyVM sendMoneyVM)
         {
+            var sender = _customerService.TGetByID(sendMoneyVM.SenderID);
+            var receiver = _customerService.TGetByID(sendMoneyVM.ReceiverID);
+
+            if (sender.Balance > sendMoneyVM.Amount)
+            {
+                sender.Balance -= sendMoneyVM.Amount;
+                receiver.Balance += sendMoneyVM.Amount;
+
+                var Process = new List<Customer>()
+            {
+                sender, receiver
+            };
+
+                _customerService.TUpdateRange(Process);
+            }
+            else
+            {
+                ViewBag.status = "Para yok fakir";
+            }
+
             return View();
         }
     }

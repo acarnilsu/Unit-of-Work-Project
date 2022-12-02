@@ -2,8 +2,8 @@
 {
     public class SendMoneyVM
     {
-        public string SenderIban { get; set; }
-        public string ReceiverIban { get; set; }
+        public int SenderID { get; set; }
+        public int ReceiverID { get; set; }
         public decimal Amount { get; set; }
     }
 }
